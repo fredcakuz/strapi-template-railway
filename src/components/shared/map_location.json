@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_map_locations",
+  "info": {
+    "displayName": "Map Location"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    }
+  }
+}
