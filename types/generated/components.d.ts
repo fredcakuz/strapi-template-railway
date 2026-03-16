@@ -30,7 +30,7 @@ export interface BlocksRichText extends Struct.ComponentSchema {
     displayName: 'Rich Text';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    body: Schema.Attribute.Blocks;
   };
 }
 

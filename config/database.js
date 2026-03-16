@@ -12,7 +12,7 @@ module.exports = ({ env }) => {
         connectionString,
         ssl: usePublicUrl ? { rejectUnauthorized: false } : false,
       },
-      debug: true,
+      debug: env.bool('DATABASE_DEBUG', false),
       pool: { min: 0, max: 7 },
     },
   };
