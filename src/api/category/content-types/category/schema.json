@@ -25,7 +25,10 @@
     },
     "icon": {
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

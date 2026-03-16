@@ -452,12 +452,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     content_blocks: Schema.Attribute.DynamicZone<
       ['blocks.rich_text', 'blocks.quote', 'blocks.cta']
     >;
-    cover: Schema.Attribute.Media & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
-    gallery: Schema.Attribute.Media<undefined, true>;
+    excerpt: Schema.Attribute.Text;
+    gallery: Schema.Attribute.Media<'images', true>;
     is_hogo_certified: Schema.Attribute.Boolean;
     is_map_visible: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -534,7 +534,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    icon: Schema.Attribute.Media;
+    icon: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

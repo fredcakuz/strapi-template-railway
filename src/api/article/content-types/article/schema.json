@@ -22,12 +22,15 @@
     },
     "excerpt": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "cover": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "type": {
       "type": "enumeration",
@@ -71,7 +74,10 @@
     },
     "gallery": {
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "map_location": {
       "type": "component",
