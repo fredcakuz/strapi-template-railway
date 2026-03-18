@@ -22,15 +22,12 @@
     },
     "excerpt": {
       "type": "text",
-      "required": false
+      "required": true
     },
     "cover": {
       "type": "media",
       "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "required": true
     },
     "type": {
       "type": "enumeration",
@@ -72,13 +69,6 @@
       "relation": "manyToOne",
       "target": "api::author.author"
     },
-    "gallery": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "map_location": {
       "type": "component",
       "component": "shared.map_location",
@@ -99,7 +89,12 @@
       "components": [
         "blocks.rich_text",
         "blocks.quote",
-        "blocks.cta"
+        "blocks.cta",
+        "shared.gallery",
+        "blocks.image",
+        "blocks.gallery",
+        "blocks.embed",
+        "blocks.container"
       ],
       "required": false
     },
@@ -113,6 +108,7 @@
       "type": "enumeration",
       "enum": [
         "editorial",
+        "branded",
         "user",
         "curator"
       ]
@@ -121,6 +117,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
+    },
+    "ExplodeArticles": {
+      "type": "boolean"
+    },
+    "subtitle": {
+      "type": "text"
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_embeds",
+  "info": {
+    "displayName": "embed",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

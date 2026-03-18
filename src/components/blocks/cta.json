@@ -1,21 +1,20 @@
 {
   "collectionName": "components_blocks_ctas",
   "info": {
-    "displayName": "CTA"
+    "displayName": "cta"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "text"
-    },
-    "buttonLabel": {
       "type": "string"
     },
-    "buttonUrl": {
+    "text": {
+      "type": "text"
+    },
+    "button_label": {
+      "type": "string"
+    },
+    "button_url": {
       "type": "string"
     }
   }

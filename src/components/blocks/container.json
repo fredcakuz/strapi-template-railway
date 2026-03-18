@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_containers",
+  "info": {
+    "displayName": "container"
+  },
+  "options": {},
+  "attributes": {
+    "col": {
+      "type": "component",
+      "component": "blocks.col",
+      "repeatable": true
+    },
+    "NumCols": {
+      "type": "integer",
+      "required": true,
+      "default": 2,
+      "min": 1,
+      "max": 4
+    }
+  },
+  "config": {}
+}

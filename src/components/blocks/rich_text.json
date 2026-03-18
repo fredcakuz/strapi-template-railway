@@ -1,12 +1,13 @@
 {
   "collectionName": "components_blocks_rich_texts",
   "info": {
-    "displayName": "Rich Text"
+    "displayName": "rich_text"
   },
   "options": {},
   "attributes": {
-    "body": {
+    "description": {
       "type": "blocks"
     }
-  }
+  },
+  "config": {}
 }

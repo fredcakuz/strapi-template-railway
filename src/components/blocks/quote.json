@@ -1,15 +1,14 @@
 {
   "collectionName": "components_blocks_quotes",
   "info": {
-    "displayName": "Quote"
+    "displayName": "quote"
   },
   "options": {},
   "attributes": {
-    "text": {
-      "type": "text",
-      "required": true
+    "quote_text": {
+      "type": "text"
     },
-    "author": {
+    "quote_author": {
       "type": "string"
     }
   }

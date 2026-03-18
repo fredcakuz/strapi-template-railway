@@ -450,14 +450,23 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     city: Schema.Attribute.Relation<'manyToOne', 'api::city.city'>;
     contact_info: Schema.Attribute.Component<'shared.contact_info', false>;
     content_blocks: Schema.Attribute.DynamicZone<
-      ['blocks.rich_text', 'blocks.quote', 'blocks.cta']
+      [
+        'blocks.rich_text',
+        'blocks.quote',
+        'blocks.cta',
+        'shared.gallery',
+        'blocks.image',
+        'blocks.gallery',
+        'blocks.embed',
+        'blocks.container',
+      ]
     >;
-    cover: Schema.Attribute.Media<'images'>;
+    cover: Schema.Attribute.Media & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    excerpt: Schema.Attribute.Text;
-    gallery: Schema.Attribute.Media<'images', true>;
+    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    ExplodeArticles: Schema.Attribute.Boolean;
     is_hogo_certified: Schema.Attribute.Boolean;
     is_map_visible: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -476,8 +485,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     submission_source: Schema.Attribute.Enumeration<
-      ['editorial', 'user', 'curator']
+      ['editorial', 'branded', 'user', 'curator']
     >;
+    subtitle: Schema.Attribute.Text;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.Enumeration<['place', 'people', 'story', 'guide']> &
