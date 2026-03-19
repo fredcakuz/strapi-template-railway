@@ -24,7 +24,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "strapi-plugin-webp-converter": "^1.0.4",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.3.12"
   },
   "engines": {
     "node": ">=22.x.x",
