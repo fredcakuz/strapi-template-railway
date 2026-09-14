@@ -119,7 +119,7 @@
     "subtitle": {
       "type": "text"
     },
-    "Description": {
+    "Body": {
       "type": "blocks"
     }
   }

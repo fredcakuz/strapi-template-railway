@@ -443,6 +443,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   attributes: {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    Body: Schema.Attribute.Blocks;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
@@ -465,7 +466,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Blocks;
     excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
     ExplodeArticles: Schema.Attribute.Boolean;
     is_hogo_certified: Schema.Attribute.Boolean;
