@@ -64,6 +64,9 @@
       "relation": "manyToOne",
       "target": "api::region.region"
     },
+    "Body": {
+      "type": "blocks"
+    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
@@ -118,9 +121,6 @@
     },
     "subtitle": {
       "type": "text"
-    },
-    "Body": {
-      "type": "blocks"
     }
   }
 }
