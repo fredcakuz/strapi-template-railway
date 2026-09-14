@@ -111,8 +111,15 @@ export interface SharedContactInfo extends Struct.ComponentSchema {
     displayName: 'Contact Info';
   };
   attributes: {
+    Address: Schema.Attribute.String;
+    Description: Schema.Attribute.Blocks;
     email: Schema.Attribute.Email;
+    lat: Schema.Attribute.String;
+    lng: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
     phone: Schema.Attribute.String;
+    PriceRange1: Schema.Attribute.Integer;
+    PriceRange2: Schema.Attribute.Integer;
     website: Schema.Attribute.String;
   };
 }

@@ -69,11 +69,6 @@
       "relation": "manyToOne",
       "target": "api::author.author"
     },
-    "map_location": {
-      "type": "component",
-      "component": "shared.map_location",
-      "repeatable": false
-    },
     "contact_info": {
       "type": "component",
       "component": "shared.contact_info",
@@ -123,6 +118,9 @@
     },
     "subtitle": {
       "type": "text"
+    },
+    "Description": {
+      "type": "blocks"
     }
   }
 }

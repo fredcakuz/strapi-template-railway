@@ -465,6 +465,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Blocks;
     excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
     ExplodeArticles: Schema.Attribute.Boolean;
     is_hogo_certified: Schema.Attribute.Boolean;
@@ -475,7 +476,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'api::article.article'
     > &
       Schema.Attribute.Private;
-    map_location: Schema.Attribute.Component<'shared.map_location', false>;
     primary_category: Schema.Attribute.Relation<
       'manyToOne',
       'api::category.category'
@@ -532,7 +532,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: 'ArticleCategory';
     pluralName: 'categories';
     singularName: 'category';
   };

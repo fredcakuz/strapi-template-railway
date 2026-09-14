@@ -13,6 +13,27 @@
     },
     "website": {
       "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "PriceRange1": {
+      "type": "integer"
+    },
+    "PriceRange2": {
+      "type": "integer"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
     }
   }
 }
