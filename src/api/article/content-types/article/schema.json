@@ -21,8 +21,7 @@
       "required": true
     },
     "excerpt": {
-      "type": "text",
-      "required": true
+      "type": "text"
     },
     "cover": {
       "type": "media",
