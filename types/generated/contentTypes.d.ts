@@ -466,7 +466,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    excerpt: Schema.Attribute.Text;
     ExplodeArticles: Schema.Attribute.Boolean;
     is_hogo_certified: Schema.Attribute.Boolean;
     is_map_visible: Schema.Attribute.Boolean;
