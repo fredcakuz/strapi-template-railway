@@ -444,10 +444,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     Body: Schema.Attribute.Blocks;
-    categories: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::category.category'
-    >;
     city: Schema.Attribute.Relation<'manyToOne', 'api::city.city'>;
     contact_info: Schema.Attribute.Component<'shared.contact_info', false>;
     content_blocks: Schema.Attribute.DynamicZone<
@@ -462,7 +458,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         'blocks.container',
       ]
     >;
-    cover: Schema.Attribute.Media & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -477,7 +473,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     primary_category: Schema.Attribute.Relation<
-      'manyToOne',
+      'oneToOne',
       'api::category.category'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -490,8 +486,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     subtitle: Schema.Attribute.Text;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<['place', 'people', 'story', 'guide']> &
-      Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['place', 'people', 'story', 'guide']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
