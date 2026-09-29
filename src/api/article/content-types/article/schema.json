@@ -115,6 +115,10 @@
     },
     "subtitle": {
       "type": "text"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
