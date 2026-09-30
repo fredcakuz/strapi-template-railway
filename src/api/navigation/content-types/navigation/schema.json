@@ -23,6 +23,9 @@
     },
     "footer_note": {
       "type": "string"
+    },
+    "ticker_text": {
+      "type": "string"
     }
   }
 }
