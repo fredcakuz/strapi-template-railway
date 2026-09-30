@@ -32,10 +32,14 @@
       "type": "enumeration",
       "required": false,
       "enum": [
+        "recipe",
+        "dish",
+        "order",
         "place",
         "people",
-        "story",
-        "guide"
+        "tool",
+        "product",
+        "cover_story"
       ]
     },
     "primary_category": {
