@@ -27,10 +27,10 @@
     "ticker_text": {
       "type": "string"
     },
-    "ticker_cta": {
+    "ticker_links": {
       "type": "component",
       "component": "shared.link",
-      "repeatable": false
+      "repeatable": true
     }
   }
 }
