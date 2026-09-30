@@ -26,6 +26,11 @@
     },
     "ticker_text": {
       "type": "string"
+    },
+    "ticker_cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
     }
   }
 }
