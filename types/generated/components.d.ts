@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksArticleMap extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_article_maps';
+  info: {
+    description: 'Mappa con i pin degli articoli geolocalizzati, filtrabile per categoria. Senza regione/citt\u00E0 mostra tutto.';
+    displayName: 'Article Map';
+  };
+  attributes: {
+    city: Schema.Attribute.Relation<'oneToOne', 'api::city.city'>;
+    region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
+  };
+}
+
 export interface BlocksCol extends Struct.ComponentSchema {
   collectionName: 'components_blocks_cols';
   info: {
@@ -197,6 +209,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.article-map': BlocksArticleMap;
       'blocks.col': BlocksCol;
       'blocks.container': BlocksContainer;
       'blocks.cta': BlocksCta;
