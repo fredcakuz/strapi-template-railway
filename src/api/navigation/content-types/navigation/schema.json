@@ -31,6 +31,11 @@
       "type": "component",
       "component": "shared.link",
       "repeatable": true
+    },
+    "ticker_prefix": {
+      "type": "component",
+      "component": "shared.icon-link",
+      "repeatable": false
     }
   }
 }
