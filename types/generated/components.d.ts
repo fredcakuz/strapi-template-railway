@@ -124,6 +124,17 @@ export interface SharedContactInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFooterColumn extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footer_columns';
+  info: {
+    displayName: 'Footer Column';
+  };
+  attributes: {
+    links: Schema.Attribute.Component<'shared.link', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedGallery extends Struct.ComponentSchema {
   collectionName: 'components_shared_galleries';
   info: {
@@ -131,6 +142,32 @@ export interface SharedGallery extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {};
+}
+
+export interface SharedIconLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_icon_links';
+  info: {
+    displayName: 'Icon Link';
+  };
+  attributes: {
+    icon: Schema.Attribute.Enumeration<
+      ['map', 'star', 'info', 'phone', 'tag', 'pin']
+    > &
+      Schema.Attribute.DefaultTo<'map'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 export interface SharedMapLocation extends Struct.ComponentSchema {
@@ -169,7 +206,10 @@ declare module '@strapi/strapi' {
       'blocks.quote': BlocksQuote;
       'blocks.rich_text': BlocksRichText;
       'shared.contact_info': SharedContactInfo;
+      'shared.footer-column': SharedFooterColumn;
       'shared.gallery': SharedGallery;
+      'shared.icon-link': SharedIconLink;
+      'shared.link': SharedLink;
       'shared.map_location': SharedMapLocation;
       'shared.seo': SharedSeo;
     }

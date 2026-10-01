@@ -24,6 +24,10 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::region.region"
+    },
+    "map_point": {
+      "type": "customField",
+      "customField": "global::map-point"
     }
   }
 }
