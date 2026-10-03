@@ -14,10 +14,10 @@
       "type": "string"
     },
     "images": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": ["images"]
+      "type": "component",
+      "component": "shared.gallery-image",
+      "repeatable": true,
+      "required": true
     }
   }
 }
