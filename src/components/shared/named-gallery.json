@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_named_galleries",
+  "info": {
+    "displayName": "Named Gallery",
+    "description": "Una galleria di immagini identificata da un codice, richiamabile nel testo dell'articolo con [codice]."
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

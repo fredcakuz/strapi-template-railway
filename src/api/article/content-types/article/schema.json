@@ -123,6 +123,11 @@
     "is_featured": {
       "type": "boolean",
       "default": false
+    },
+    "galleries": {
+      "type": "component",
+      "component": "shared.named-gallery",
+      "repeatable": true
     }
   }
 }
