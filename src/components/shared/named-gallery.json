@@ -2,7 +2,7 @@
   "collectionName": "components_shared_named_galleries",
   "info": {
     "displayName": "Named Gallery",
-    "description": "Una galleria di immagini identificata da un codice, richiamabile nel testo dell'articolo con [codice]."
+    "description": "Una galleria di immagini identificata da un codice, richiamabile nel testo dell'articolo con [codice]. Se 'expand' e' attivo, la prima immagine dell'elenco occupa 4 posizioni nella griglia."
   },
   "options": {},
   "attributes": {
@@ -13,11 +13,15 @@
     "name": {
       "type": "string"
     },
+    "expand": {
+      "type": "boolean",
+      "default": false
+    },
     "images": {
-      "type": "component",
-      "component": "shared.gallery-image",
-      "repeatable": true,
-      "required": true
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
     }
   }
 }
