@@ -446,6 +446,8 @@ export interface ApiAdvCampaignAdvCampaign extends Struct.CollectionTypeSchema {
     article_1_mobile: Schema.Attribute.Media<'images'>;
     article_2_desktop: Schema.Attribute.Media<'images'>;
     article_2_mobile: Schema.Attribute.Media<'images'>;
+    article_sidebar_desktop: Schema.Attribute.Media<'images'>;
+    article_sidebar_mobile: Schema.Attribute.Media<'images'>;
     client: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -497,7 +499,15 @@ export interface ApiAdvPositionAdvPosition extends Struct.CollectionTypeSchema {
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     code: Schema.Attribute.Enumeration<
-      ['home_1', 'home_2', 'list_1', 'list_2', 'article_1', 'article_2']
+      [
+        'home_1',
+        'home_2',
+        'list_1',
+        'list_2',
+        'article_1',
+        'article_2',
+        'article_sidebar',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

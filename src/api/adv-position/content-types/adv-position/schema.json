@@ -10,7 +10,7 @@
   "attributes": {
     "code": {
       "type": "enumeration",
-      "enum": ["home_1", "home_2", "list_1", "list_2", "article_1", "article_2"],
+      "enum": ["home_1", "home_2", "list_1", "list_2", "article_1", "article_2", "article_sidebar"],
       "required": true,
       "unique": true
     },

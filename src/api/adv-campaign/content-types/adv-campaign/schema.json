@@ -26,6 +26,8 @@
     "list_1_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "list_1_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "list_2_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
-    "list_2_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
+    "list_2_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_sidebar_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_sidebar_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
   }
 }
