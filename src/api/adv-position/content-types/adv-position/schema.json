@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adv_positions",
+  "info": {
+    "singularName": "adv-position",
+    "pluralName": "adv-positions",
+    "displayName": "Adv Position"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "code": {
+      "type": "enumeration",
+      "enum": ["home_1", "home_2", "list_1", "list_2", "article_1", "article_2"],
+      "required": true,
+      "unique": true
+    },
+    "description": { "type": "string" },
+    "active": { "type": "boolean", "default": true },
+    "mode": {
+      "type": "enumeration",
+      "enum": ["weight", "daily", "sequence"],
+      "default": "daily",
+      "required": true
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::adv-campaign.adv-campaign",
+      "mappedBy": "positions"
+    }
+  }
+}
