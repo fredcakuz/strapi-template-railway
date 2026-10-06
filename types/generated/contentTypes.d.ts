@@ -430,6 +430,95 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdvCampaignAdvCampaign extends Struct.CollectionTypeSchema {
+  collectionName: 'adv_campaigns';
+  info: {
+    displayName: 'Adv Campaign';
+    pluralName: 'adv-campaigns';
+    singularName: 'adv-campaign';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alt: Schema.Attribute.String & Schema.Attribute.Required;
+    client: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desktop_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    end_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::adv-campaign.adv-campaign'
+    > &
+      Schema.Attribute.Private;
+    mobile_image: Schema.Attribute.Media<'images'>;
+    positions: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::adv-position.adv-position'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    start_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    weight: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+  };
+}
+
+export interface ApiAdvPositionAdvPosition extends Struct.CollectionTypeSchema {
+  collectionName: 'adv_positions';
+  info: {
+    displayName: 'Adv Position';
+    pluralName: 'adv-positions';
+    singularName: 'adv-position';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    campaigns: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::adv-campaign.adv-campaign'
+    >;
+    code: Schema.Attribute.Enumeration<
+      ['home_1', 'home_2', 'list_1', 'list_2', 'article_1', 'article_2']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::adv-position.adv-position'
+    > &
+      Schema.Attribute.Private;
+    mode: Schema.Attribute.Enumeration<['weight', 'daily', 'sequence']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'daily'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -464,6 +553,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     excerpt: Schema.Attribute.Text;
     ExplodeArticles: Schema.Attribute.Boolean;
+    galleries: Schema.Attribute.Component<'shared.named-gallery', true>;
     is_featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     is_hogo_certified: Schema.Attribute.Boolean;
     is_map_visible: Schema.Attribute.Boolean;
@@ -1256,6 +1346,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::adv-campaign.adv-campaign': ApiAdvCampaignAdvCampaign;
+      'api::adv-position.adv-position': ApiAdvPositionAdvPosition;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;

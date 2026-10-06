@@ -194,6 +194,20 @@ export interface SharedMapLocation extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNamedGallery extends Struct.ComponentSchema {
+  collectionName: 'components_shared_named_galleries';
+  info: {
+    description: "Una galleria di immagini identificata da un codice, richiamabile nel testo dell'articolo con [codice]. Se 'expand' e' attivo, la prima immagine dell'elenco occupa 4 posizioni nella griglia.";
+    displayName: 'Named Gallery';
+  };
+  attributes: {
+    code: Schema.Attribute.String & Schema.Attribute.Required;
+    expand: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -224,6 +238,7 @@ declare module '@strapi/strapi' {
       'shared.icon-link': SharedIconLink;
       'shared.link': SharedLink;
       'shared.map_location': SharedMapLocation;
+      'shared.named-gallery': SharedNamedGallery;
       'shared.seo': SharedSeo;
     }
   }
