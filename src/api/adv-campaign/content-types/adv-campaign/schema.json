@@ -10,18 +10,22 @@
   "attributes": {
     "client": { "type": "string", "required": true },
     "title": { "type": "string" },
-    "desktop_image": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
-    "mobile_image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "alt": { "type": "string", "required": true },
     "link": { "type": "string", "required": true },
     "start_date": { "type": "date", "required": true },
     "end_date": { "type": "date", "required": true },
     "weight": { "type": "integer", "default": 1, "min": 1, "max": 5 },
-    "positions": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::adv-position.adv-position",
-      "inversedBy": "campaigns"
-    }
+    "home_1_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "home_1_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "home_2_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "home_2_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_1_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_1_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_2_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "article_2_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "list_1_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "list_1_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "list_2_desktop": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "list_2_mobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
   }
 }

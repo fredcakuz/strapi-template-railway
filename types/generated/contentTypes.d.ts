@@ -442,24 +442,30 @@ export interface ApiAdvCampaignAdvCampaign extends Struct.CollectionTypeSchema {
   };
   attributes: {
     alt: Schema.Attribute.String & Schema.Attribute.Required;
+    article_1_desktop: Schema.Attribute.Media<'images'>;
+    article_1_mobile: Schema.Attribute.Media<'images'>;
+    article_2_desktop: Schema.Attribute.Media<'images'>;
+    article_2_mobile: Schema.Attribute.Media<'images'>;
     client: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    desktop_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     end_date: Schema.Attribute.Date & Schema.Attribute.Required;
+    home_1_desktop: Schema.Attribute.Media<'images'>;
+    home_1_mobile: Schema.Attribute.Media<'images'>;
+    home_2_desktop: Schema.Attribute.Media<'images'>;
+    home_2_mobile: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String & Schema.Attribute.Required;
+    list_1_desktop: Schema.Attribute.Media<'images'>;
+    list_1_mobile: Schema.Attribute.Media<'images'>;
+    list_2_desktop: Schema.Attribute.Media<'images'>;
+    list_2_mobile: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::adv-campaign.adv-campaign'
     > &
       Schema.Attribute.Private;
-    mobile_image: Schema.Attribute.Media<'images'>;
-    positions: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::adv-position.adv-position'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     start_date: Schema.Attribute.Date & Schema.Attribute.Required;
     title: Schema.Attribute.String;
@@ -490,10 +496,6 @@ export interface ApiAdvPositionAdvPosition extends Struct.CollectionTypeSchema {
   };
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    campaigns: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::adv-campaign.adv-campaign'
-    >;
     code: Schema.Attribute.Enumeration<
       ['home_1', 'home_2', 'list_1', 'list_2', 'article_1', 'article_2']
     > &

@@ -21,12 +21,6 @@
       "enum": ["weight", "daily", "sequence"],
       "default": "daily",
       "required": true
-    },
-    "campaigns": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::adv-campaign.adv-campaign",
-      "mappedBy": "positions"
     }
   }
 }
