@@ -1,0 +1,11 @@
+{
+  "name": "site-deploy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pulsante nell'admin per ricostruire e pubblicare il frontend Hogo (GitHub Actions → Firebase).",
+  "strapi": {
+    "kind": "plugin",
+    "name": "site-deploy",
+    "displayName": "Aggiorna sito"
+  }
+}

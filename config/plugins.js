@@ -1,4 +1,8 @@
 module.exports = ({ env }) => ({
+  "site-deploy": {
+    enabled: true,
+    resolve: "./src/plugins/site-deploy",
+  },
   "users-permissions": {
     config: {
       jwtSecret: env("JWT_SECRET"),
