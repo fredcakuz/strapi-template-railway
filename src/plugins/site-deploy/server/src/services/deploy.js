@@ -12,6 +12,12 @@
 const GITHUB_API = 'https://api.github.com';
 const EVENT_TYPE = 'strapi-publish';
 
+const GITHUB_ERROR_HINTS = {
+  401: 'GH_TOKEN non valido o scaduto',
+  403: 'GH_TOKEN senza i permessi necessari (Contents: Read and write, Actions: Read)',
+  404: 'repo o workflow non trovato: controlla GH_REPO, che il token abbia accesso al repo e che il workflow sia sul branch principale',
+};
+
 // Content-type che non finiscono sul sito
 const IGNORED_UIDS = new Set(['api::secret.secret']);
 
@@ -36,8 +42,9 @@ async function github(path, { token, method = 'GET', body } = {}) {
   });
 
   if (!response.ok) {
+    const hint = GITHUB_ERROR_HINTS[response.status];
     const detail = await response.text().catch(() => '');
-    throw new Error(`GitHub ${method} ${path} → ${response.status} ${detail}`.trim());
+    throw new Error([`GitHub ${response.status}`, hint, `(${method} ${path} ${detail})`.trim()].filter(Boolean).join(' — '));
   }
   return response.status === 204 ? null : response.json();
 }
