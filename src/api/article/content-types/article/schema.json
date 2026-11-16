@@ -70,6 +70,12 @@
       "relation": "manyToOne",
       "target": "api::author.author"
     },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
     "contact_info": {
       "type": "component",
       "component": "shared.contact_info",

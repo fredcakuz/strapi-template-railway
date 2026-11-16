@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "author_categories",
+  "info": {
+    "singularName": "author-category",
+    "pluralName": "author-categories",
+    "displayName": "AuthorCategory",
+    "description": "Ruolo dell'autore (es. Editor, Fotografo)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author.author",
+      "mappedBy": "author_categories"
+    }
+  }
+}

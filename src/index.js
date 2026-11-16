@@ -78,6 +78,34 @@ function patchImageQuality(strapi) {
   };
 }
 
+// One-shot migration: copy the legacy single `author` of each article into the
+// new multi-value `authors` relation. Runs once (flag in the core store) and
+// works on raw rows, so both draft and published versions are migrated.
+// Remove this, and the `author` field, once the data has been verified.
+async function migrateArticleAuthors(strapi) {
+  const store = strapi.store({ type: 'core', name: 'migrations' });
+  const KEY = 'article-authors-v1';
+  if (await store.get({ key: KEY })) return;
+
+  const rows = await strapi.db.query('api::article.article').findMany({
+    select: ['id'],
+    populate: { author: { select: ['id'] }, authors: { select: ['id'] } },
+  });
+
+  let migrated = 0;
+  for (const row of rows) {
+    if (!row.author || (row.authors && row.authors.length > 0)) continue;
+    await strapi.db.query('api::article.article').update({
+      where: { id: row.id },
+      data: { authors: [row.author.id] },
+    });
+    migrated++;
+  }
+
+  await store.set({ key: KEY, value: { done: true, migrated, at: new Date().toISOString() } });
+  strapi.log.info(`[migration] ${KEY}: copied author → authors on ${migrated} article rows`);
+}
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -101,5 +129,7 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/*{ strapi }*/) {},
+  async bootstrap({ strapi }) {
+    await migrateArticleAuthors(strapi);
+  },
 };

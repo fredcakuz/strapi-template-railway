@@ -25,6 +25,18 @@
     "avatar": {
       "type": "media",
       "multiple": false
+    },
+    "author_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::author-category.author-category",
+      "inversedBy": "authors"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "authors"
     }
   }
 }
